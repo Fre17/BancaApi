@@ -10,7 +10,34 @@ CuentaBancariaController
 TransaccionController
 * ConsultaTransaccionBancaria: endpoint que realiza consulta, empleando la opcion 0, a la tabla de transacciones. Donde igualmente podra consultar por todos los registros, o bien crear filtros con los atributos: Pk_Tbl_Banca_Transacciones, Fk_Tbl_Banca_Tipo_Transaccion.Pk_Tbl_Banca_Tipo_Transaccion, Fk_Tbl_Banca_Cuenta_Bancaria_Origen.Pk_Tbl_Cuenta_Bancaria y Fk_Tbl_Banca_Cuenta_Bancaria_Destino.Pk_Tbl_Cuenta_Bancaria.
 * MantenimientoTransaccionBancaria: dicho endpoint permite darle mantenimiento a las transacciones del sistema, en el cual la opción 0 permite el update/insert en la tabla. Por su parte la opcion 1, es la encargada de crear las recargas en la cuenta origen. Seguidamente la opción 2 es la encargada de registrar los retiros de fondos de las cuentas. La opción 3 es la que permite transferir fondos de la cuenta origen a la cuenta destino. Finalmente la opcion 4, se encarga del registro de los intereses ganados en las cuentas. Dichos ultimos movimientos quedan registrados en el historial de transacciones.
-### Modelado .NET
+## Modelado .NET
 Arquitectura: Repository
 Patrón de diseño: Dependency injection
 Framework de consulta de datos: directo
+## Seguriad
+Se han adoptado medidas como HtmlSanitizer para proteger contra ataques XSS, y se han empleado procedimientos almacenados con parámetros para prevenir la inyección de SQL.
+# Modelado Base de datos
+La base de datos cuenta con una estandarizacion en cuanto a la nomenclatura, tanto en el nombre de las talas, columnas y los procesos almacenados. Cada proceso almacenado cuenta con su try catch, y una posible insercion en la tabla de excepcion para el manejo de errores. Dicho proceso es importante para comprender la falla en el sistema y una pronta respuesta.
+## Tablas
+* TBL_BANCA_CUENTA_BANCARIA
+* TBL_BANCA_EXCEPCION
+ *TBL_BANCA_TASA
+* TBL_BANCA_TIPO_TRANSACCION
+* TBL_BANCA_TRANSACCIONES
+* TBL_BANCA_USUARIOS
+## Procesos almacenados
+* PA_CON_TBL_BANCA_CUENTA_BANCARIA
+* PA_CON_TBL_BANCA_TRANSACCIONES
+* PA_MAN_TBL_BANCA_CUENTA_BANCARIA
+* PA_MAN_TBL_BANCA_EXCEPCION
+* PA_MAN_TBL_BANCA_TRANSACCIONES
+# Pruebas unitarias y de integracion
+El segundo proyecto que aparece en la solucion, son pruebas unitarias y de integracion a los distintos procesos que realizan los controladores. Las primeras dos clases, son pruebas unitarias a los controladores y sus respectivos endpoints, asi como a cada una de sus opciones. Seguidamente aparece una clase que permite probar en conjuntos varios procesos, como la creacion y consulta de cuenta, asi como la consulta de una cuenta, recargar, retirar y transferir fondos.
+# Worker 
+Por su parte el worker se ejecutara cada 24 horas. El cual hara un llamado al api, puntualmente al endpoint de mantenimiento de transaccion. El cual utiliza la opcion 4, para la generacion de los intereses en las cuentas y su posterior registro en la tabla del historico de transacciones.
+# Coleccion de postman 
+La coleccion de postman permite realizar pruebas a los distintos endpoints, asi como a sus opciones. La coleccion cuenta con una variable, la cual permite digitar una unica vez el puerto de localhost o la direccion donde se encuentra el api publicado, lo cual permitira su ejecucion de una forma mas sencilla.
+# Considereciones 
+* Restablecer el archivo .back con la base de datos
+* Cambiar la cadena de conexion a la base de datos en el archivo appsettings.json, el cual se debera cambiar el nombre del servidos, asi como el usuario y la contraseña de acceso.
+* Cambiar el puerto de consulta del api en el worker.
