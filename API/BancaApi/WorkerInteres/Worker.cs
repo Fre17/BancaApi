@@ -19,8 +19,7 @@ namespace WorkerInteres
 			{
 				if (_logger.IsEnabled(LogLevel.Information))
 				{
-					_logger.LogInformation("Worker running at: {time}", TimeSpan.FromHours(24));
-
+					//consulta al api, transaccion controller opcio 4 registro de intereses en todas las cuentas
 					using (HttpClient client = new HttpClient() { Timeout = TimeSpan.FromSeconds(900) })
 					{
 						var uri = new Uri("https://localhost:44319/BancaApi/transaccion/MantenimientoTransaccionBancaria");
@@ -35,6 +34,7 @@ namespace WorkerInteres
 						string resultado = await response.Content.ReadAsStringAsync();
 					}
 				}
+				//duerme el worker por las proximas 24 horas 
 				await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
 			}
 		}

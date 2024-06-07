@@ -34,7 +34,7 @@
 			"response": []
 		},
 		{
-			"name": "Mantenimiento cuenta bancaria",
+			"name": "Creacion cuenta bancaria",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -94,7 +94,169 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"opcion\": 0,\r\n  \"usuario\": \"string\",\r\n  \"pk_Tbl_Banca_Transacciones\": 0,\r\n  \"fk_Tbl_Banca_Tipo_Transaccion\": {\r\n    \"opcion\": 0,\r\n    \"usuario\": \"string\",\r\n    \"pk_Tbl_Banca_Tipo_Transaccion\": 0,\r\n    \"descripcion\": \"string\"\r\n  },\r\n  \"fk_Tbl_Banca_Cuenta_Bancaria_Origen\": {\r\n    \"opcion\": 0,\r\n    \"usuario\": \"string\",\r\n    \"pk_Tbl_Cuenta_Bancaria\": 0,\r\n    \"fk_Tbl_Usuario\": {\r\n      \"opcion\": 0,\r\n      \"usuario\": \"string\",\r\n      \"pk_Tbl_Banca_Usuario\": 0,\r\n      \"identificacion\": \"string\",\r\n      \"nombre\": \"string\",\r\n      \"contrasena\": \"string\"\r\n    },\r\n    \"saldo\": 2147483647\r\n  },\r\n  \"fk_Tbl_Banca_Cuenta_Bancaria_Destino\": {\r\n    \"opcion\": 0,\r\n    \"usuario\": \"string\",\r\n    \"pk_Tbl_Cuenta_Bancaria\": 0,\r\n    \"fk_Tbl_Usuario\": {\r\n      \"opcion\": 0,\r\n      \"usuario\": \"string\",\r\n      \"pk_Tbl_Banca_Usuario\": 0,\r\n      \"identificacion\": \"string\",\r\n      \"nombre\": \"string\",\r\n      \"contrasena\": \"string\"\r\n    },\r\n    \"saldo\": 2147483647\r\n  },\r\n  \"monto\": 0,\r\n  \"fechaMovimiento\": \"2024-06-05T03:00:41.007Z\",\r\n  \"detalle\": \"string\"\r\n}",
+					"raw": "{\r\n  \"opcion\": 4,\r\n  \"usuario\": \"string\",\r\n  \"pk_Tbl_Banca_Transacciones\": 0,\r\n  \"fk_Tbl_Banca_Tipo_Transaccion\": {\r\n    \"opcion\": 0,\r\n    \"usuario\": \"string\",\r\n    \"pk_Tbl_Banca_Tipo_Transaccion\": 0,\r\n    \"descripcion\": \"string\"\r\n  },\r\n  \"fk_Tbl_Banca_Cuenta_Bancaria_Origen\": {\r\n    \"opcion\": 0,\r\n    \"usuario\": \"string\",\r\n    \"pk_Tbl_Cuenta_Bancaria\": 0,\r\n    \"fk_Tbl_Usuario\": {\r\n      \"opcion\": 0,\r\n      \"usuario\": \"string\",\r\n      \"pk_Tbl_Banca_Usuario\": 0,\r\n      \"identificacion\": \"string\",\r\n      \"nombre\": \"string\",\r\n      \"contrasena\": \"string\"\r\n    },\r\n    \"saldo\": 2147483647\r\n  },\r\n  \"fk_Tbl_Banca_Cuenta_Bancaria_Destino\": {\r\n    \"opcion\": 0,\r\n    \"usuario\": \"string\",\r\n    \"pk_Tbl_Cuenta_Bancaria\": 0,\r\n    \"fk_Tbl_Usuario\": {\r\n      \"opcion\": 0,\r\n      \"usuario\": \"string\",\r\n      \"pk_Tbl_Banca_Usuario\": 0,\r\n      \"identificacion\": \"string\",\r\n      \"nombre\": \"string\",\r\n      \"contrasena\": \"string\"\r\n    },\r\n    \"saldo\": 2147483647\r\n  },\r\n  \"monto\": 0,\r\n  \"fechaMovimiento\": \"2024-06-05T03:00:41.007Z\",\r\n  \"detalle\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{oDireccionApi}}BancaApi/CuentaBancaria/MantenimientoTransaccionBancaria",
+					"host": [
+						"{{oDireccionApi}}BancaApi"
+					],
+					"path": [
+						"CuentaBancaria",
+						"MantenimientoTransaccionBancaria"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta cuenta bancaria filtros",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"opcion\": 0,\r\n  \"usuario\": \"Postman\",\r\n  \"pk_Tbl_Cuenta_Bancaria\": 1,\r\n  \"fk_Tbl_Usuario\": {\r\n    \"opcion\": 0,\r\n    \"usuario\": \"string\",\r\n    \"pk_Tbl_Banca_Usuario\": 1,\r\n    \"identificacion\": \"117460382\",\r\n    \"nombre\": \"string\",\r\n    \"contrasena\": \"string\"\r\n  },\r\n  \"saldo\": 2147483647\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{oDireccionApi}}BancaApi/CuentaBancaria/ConsultaCuentaBancaria",
+					"host": [
+						"{{oDireccionApi}}BancaApi"
+					],
+					"path": [
+						"CuentaBancaria",
+						"ConsultaCuentaBancaria"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizacion cuenta bancaria",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"opcion\": 0,\r\n  \"usuario\": \"Postman\",\r\n  \"pk_Tbl_Cuenta_Bancaria\": 1,\r\n  \"fk_Tbl_Usuario\": {\r\n    \"opcion\": 0,\r\n    \"usuario\": \"string\",\r\n    \"pk_Tbl_Banca_Usuario\": 1,\r\n    \"identificacion\": \"\",\r\n    \"nombre\": \"string\",\r\n    \"contrasena\": \"string\"\r\n  },\r\n  \"saldo\": 1500\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{oDireccionApi}}BancaApi/CuentaBancaria/MantenimientoCuentaBancaria",
+					"host": [
+						"{{oDireccionApi}}BancaApi"
+					],
+					"path": [
+						"CuentaBancaria",
+						"MantenimientoCuentaBancaria"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Recargar fondos cuenta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"opcion\": 1,\r\n  \"usuario\": \"Postman\",\r\n  \"pk_Tbl_Banca_Transacciones\": 0,\r\n  \"fk_Tbl_Banca_Tipo_Transaccion\": {\r\n    \"opcion\": 0,\r\n    \"usuario\": \"string\",\r\n    \"pk_Tbl_Banca_Tipo_Transaccion\": 1,\r\n    \"descripcion\": \"string\"\r\n  },\r\n  \"fk_Tbl_Banca_Cuenta_Bancaria_Origen\": {\r\n    \"opcion\": 0,\r\n    \"usuario\": \"string\",\r\n    \"pk_Tbl_Cuenta_Bancaria\": 1,\r\n    \"fk_Tbl_Usuario\": {\r\n      \"opcion\": 0,\r\n      \"usuario\": \"string\",\r\n      \"pk_Tbl_Banca_Usuario\": 0,\r\n      \"identificacion\": \"string\",\r\n      \"nombre\": \"string\",\r\n      \"contrasena\": \"string\"\r\n    },\r\n    \"saldo\": 2147483647\r\n  },\r\n  \"fk_Tbl_Banca_Cuenta_Bancaria_Destino\": {\r\n    \"opcion\": 0,\r\n    \"usuario\": \"string\",\r\n    \"pk_Tbl_Cuenta_Bancaria\": 0,\r\n    \"fk_Tbl_Usuario\": {\r\n      \"opcion\": 0,\r\n      \"usuario\": \"string\",\r\n      \"pk_Tbl_Banca_Usuario\": 0,\r\n      \"identificacion\": \"string\",\r\n      \"nombre\": \"string\",\r\n      \"contrasena\": \"string\"\r\n    },\r\n    \"saldo\": 2147483647\r\n  },\r\n  \"monto\": 1000,\r\n  \"fechaMovimiento\": \"2024-06-05T03:00:41.007Z\",\r\n  \"detalle\": \"recarga fondos postman\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{oDireccionApi}}BancaApi/CuentaBancaria/MantenimientoTransaccionBancaria",
+					"host": [
+						"{{oDireccionApi}}BancaApi"
+					],
+					"path": [
+						"CuentaBancaria",
+						"MantenimientoTransaccionBancaria"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retirar fondos cuenta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"opcion\": 2,\r\n  \"usuario\": \"Postman\",\r\n  \"pk_Tbl_Banca_Transacciones\": 0,\r\n  \"fk_Tbl_Banca_Tipo_Transaccion\": {\r\n    \"opcion\": 0,\r\n    \"usuario\": \"string\",\r\n    \"pk_Tbl_Banca_Tipo_Transaccion\": 2,\r\n    \"descripcion\": \"string\"\r\n  },\r\n  \"fk_Tbl_Banca_Cuenta_Bancaria_Origen\": {\r\n    \"opcion\": 0,\r\n    \"usuario\": \"string\",\r\n    \"pk_Tbl_Cuenta_Bancaria\": 1,\r\n    \"fk_Tbl_Usuario\": {\r\n      \"opcion\": 0,\r\n      \"usuario\": \"string\",\r\n      \"pk_Tbl_Banca_Usuario\": 0,\r\n      \"identificacion\": \"string\",\r\n      \"nombre\": \"string\",\r\n      \"contrasena\": \"string\"\r\n    },\r\n    \"saldo\": 2147483647\r\n  },\r\n  \"fk_Tbl_Banca_Cuenta_Bancaria_Destino\": {\r\n    \"opcion\": 0,\r\n    \"usuario\": \"string\",\r\n    \"pk_Tbl_Cuenta_Bancaria\": 0,\r\n    \"fk_Tbl_Usuario\": {\r\n      \"opcion\": 0,\r\n      \"usuario\": \"string\",\r\n      \"pk_Tbl_Banca_Usuario\": 0,\r\n      \"identificacion\": \"string\",\r\n      \"nombre\": \"string\",\r\n      \"contrasena\": \"string\"\r\n    },\r\n    \"saldo\": 2147483647\r\n  },\r\n  \"monto\": 500,\r\n  \"fechaMovimiento\": \"2024-06-05T03:00:41.007Z\",\r\n  \"detalle\": \"retiro fondos postman\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{oDireccionApi}}BancaApi/CuentaBancaria/MantenimientoTransaccionBancaria",
+					"host": [
+						"{{oDireccionApi}}BancaApi"
+					],
+					"path": [
+						"CuentaBancaria",
+						"MantenimientoTransaccionBancaria"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Interes automatico fondos cuenta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"opcion\": 4,\r\n  \"usuario\": \"Postman\",\r\n  \"pk_Tbl_Banca_Transacciones\": 0,\r\n  \"fk_Tbl_Banca_Tipo_Transaccion\": {\r\n    \"opcion\": 0,\r\n    \"usuario\": \"string\",\r\n    \"pk_Tbl_Banca_Tipo_Transaccion\": 4,\r\n    \"descripcion\": \"string\"\r\n  },\r\n  \"fk_Tbl_Banca_Cuenta_Bancaria_Origen\": {\r\n    \"opcion\": 0,\r\n    \"usuario\": \"string\",\r\n    \"pk_Tbl_Cuenta_Bancaria\": 0,\r\n    \"fk_Tbl_Usuario\": {\r\n      \"opcion\": 0,\r\n      \"usuario\": \"string\",\r\n      \"pk_Tbl_Banca_Usuario\": 0,\r\n      \"identificacion\": \"string\",\r\n      \"nombre\": \"string\",\r\n      \"contrasena\": \"string\"\r\n    },\r\n    \"saldo\": 2147483647\r\n  },\r\n  \"fk_Tbl_Banca_Cuenta_Bancaria_Destino\": {\r\n    \"opcion\": 0,\r\n    \"usuario\": \"string\",\r\n    \"pk_Tbl_Cuenta_Bancaria\": 0,\r\n    \"fk_Tbl_Usuario\": {\r\n      \"opcion\": 0,\r\n      \"usuario\": \"string\",\r\n      \"pk_Tbl_Banca_Usuario\": 0,\r\n      \"identificacion\": \"string\",\r\n      \"nombre\": \"string\",\r\n      \"contrasena\": \"string\"\r\n    },\r\n    \"saldo\": 2147483647\r\n  },\r\n  \"monto\": 500,\r\n  \"fechaMovimiento\": \"2024-06-05T03:00:41.007Z\",\r\n  \"detalle\": \"interes ganado fondos postman\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{oDireccionApi}}BancaApi/CuentaBancaria/MantenimientoTransaccionBancaria",
+					"host": [
+						"{{oDireccionApi}}BancaApi"
+					],
+					"path": [
+						"CuentaBancaria",
+						"MantenimientoTransaccionBancaria"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transferir fondos cuenta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"opcion\": 3,\r\n  \"usuario\": \"Postman\",\r\n  \"pk_Tbl_Banca_Transacciones\": 0,\r\n  \"fk_Tbl_Banca_Tipo_Transaccion\": {\r\n    \"opcion\": 0,\r\n    \"usuario\": \"string\",\r\n    \"pk_Tbl_Banca_Tipo_Transaccion\": 3,\r\n    \"descripcion\": \"string\"\r\n  },\r\n  \"fk_Tbl_Banca_Cuenta_Bancaria_Origen\": {\r\n    \"opcion\": 0,\r\n    \"usuario\": \"string\",\r\n    \"pk_Tbl_Cuenta_Bancaria\": 1,\r\n    \"fk_Tbl_Usuario\": {\r\n      \"opcion\": 0,\r\n      \"usuario\": \"string\",\r\n      \"pk_Tbl_Banca_Usuario\": 0,\r\n      \"identificacion\": \"string\",\r\n      \"nombre\": \"string\",\r\n      \"contrasena\": \"string\"\r\n    },\r\n    \"saldo\": 2147483647\r\n  },\r\n  \"fk_Tbl_Banca_Cuenta_Bancaria_Destino\": {\r\n    \"opcion\": 0,\r\n    \"usuario\": \"string\",\r\n    \"pk_Tbl_Cuenta_Bancaria\": 10,\r\n    \"fk_Tbl_Usuario\": {\r\n      \"opcion\": 0,\r\n      \"usuario\": \"string\",\r\n      \"pk_Tbl_Banca_Usuario\": 0,\r\n      \"identificacion\": \"string\",\r\n      \"nombre\": \"string\",\r\n      \"contrasena\": \"string\"\r\n    },\r\n    \"saldo\": 2147483647\r\n  },\r\n  \"monto\": 1500,\r\n  \"fechaMovimiento\": \"2024-06-05T03:00:41.007Z\",\r\n  \"detalle\": \"transferir fondos postman\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
